@@ -1,0 +1,67 @@
+.menuBlock{
+   margin-top:0!important;
+   background-color: rgb(55, 61, 65)!important;
+   .collectMenu a.item{
+       color:#fff!important;
+    
+   }
+   .header{
+        padding: 0!important;
+   }   
+   .brandie{
+        background-color: #e54a35;//rgb(255,69,0);
+        padding: 1rem 1rem; 
+        width:4rem;
+        font-size: 0.6rem;
+        color:#ffffff;
+
+        &::after{
+            content: "";
+            display: block;
+            border-top: 6px solid #bd7066;//#b15346;//#838383;
+            border-right: 6px solid transparent;
+            width: 7px;
+            position: absolute;
+            right: -7px;
+            bottom: 0px;
+            z-index: 9999;            
+        } 
+   }
+
+   .menuItem{
+    color: #fff!important;//grey;
+
+   }
+
+   .btcPrice{
+    display: none!important;
+    color:grey;
+    span{
+        color: #e3e3e3;
+    }
+   }
+
+}
+
+// .secondHeader{
+//     display: none;
+//     &>p{
+//         font-size:3rem;
+//         margin-bottom:1rem;
+//         margin-left:1rem;
+//     }
+//     .secondaryBrandName{
+//         color:#838383;
+//         padding:0;
+//         font-size:3rem;
+//     }
+//     .tip{
+//         color:olive;
+//         font-size:1rem;
+//     }
+// }
+
+.menuBlock {
+    
+    background-color: #595c5f!important//#564545!important //#6f5151!important;
+}

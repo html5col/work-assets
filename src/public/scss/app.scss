@@ -1,17 +1,25 @@
 @import 'common/_common';
+@import 'partials/_header';
+@import 'page/_home';
+@import 'partials/_home_leftBlock';
+@import 'partials/_home_rightBlock';
+@import 'partials/_responsive';
+@import 'partials/_footer';
+@import 'partials/_bread';
 body{
-	background: white;
+	background-color: #f2f2f2;
 	font-size:1em;
-	footer{
-		background: black;
-		font-size: 1em;
-	}
-	header{
-		background: white;
-		font-size: 2em;
-
-
-
-		
-	}	
+	// header{
+	// 	background: white;
+	// 	font-size: 2em;
+	// }
+}
+.contentBlock,.formWrapper,.detail{
+	margin-top: 4.6rem;
+}
+.contentBlock{
+	padding: 0 1.5rem!important;
+	max-width:100%;
+	
+	
 }

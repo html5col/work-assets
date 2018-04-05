@@ -1,11 +1,16 @@
 //mediaquery class
 
-*{ margin:0; padding:0;font-size:15px; text-decoration:none;
+*{ font-size:15px; text-decoration:none;
    -webkit-user-drag: none;
    -webkit-tap-highlight-color:rgba(255,255,255,0);
  }
  //a,img,button,input,textarea,div{-webkit-tap-highlight-color:rgba(255,255,255,0);}
- body{ min-height:100%;}
+ body{ 
+     min-height:100%;
+ }
+ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei";
+ }
  
   /*****set css input placeholder: color.
         Firefox's placeholder appears to be defaulting with a reduced opacity, so needs to use opacity: 1 here.
@@ -65,30 +70,30 @@ a,input[type="button"],input[type="submit"],input[type="search"]{
 
 }
 
-pre{
+// pre{
   
-  padding:1em 1em;
-  margin-bottom:1;
-  line-height: 1.5em;
-   overflow: auto;
-    font-size: 13px;
-    padding: 5px;
-    width: auto;
+//   padding:1em 1em;
+//   margin-bottom:1;
+//   line-height: 1.5em;
+//    overflow: auto;
+//     font-size: 13px;
+//     padding: 5px;
+//     width: auto;
 
-   max-height: 600px;
-    background: #eee!important;
-    margin-bottom: 1em;
-    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;    
-    //white-space: pre; 
-    color:#3a3a3a!important;
+//    max-height: 600px;
+//     background: #eee!important;
+//     margin-bottom: 1em;
+//     font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;    
+//     //white-space: pre; 
+//     color:#3a3a3a!important;
 
-}
-code{
-  //background-color: transparent;
-  border: 1px solid transparent;
-  background-color: #eee!important;
-   color:#3a3a3a!important;
-}
+// }
+// code{
+//   //background-color: transparent;
+//   border: 1px solid transparent;
+//   background-color: #eee!important;
+//    color:#3a3a3a!important;
+// }
 
 .hide{
   display:none;

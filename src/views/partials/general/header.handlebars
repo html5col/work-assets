@@ -1,0 +1,36 @@
+<div class="ui text borderless menu menuBlock fixed">
+  <div class="header item">
+    <div class="brandie">BTC210 区块链世界</div>
+  </div>
+  <a href="/" class="item menuItem" style="margin-left:1rem;">
+            首页
+  </a>
+ {{#if user}}
+  <a href="/user/profile/{{user._id}}" class="item menuItem">
+           个性化
+  </a>
+  {{else}}
+    <a href="/user/login" class="item menuItem">
+           个性化
+    </a>
+  {{/if}}
+  <a href="" class="item menuItem">
+            {{!-- 注册 --}}
+  </a>
+  {{!-- <a href="" class="item menuItem">
+            个性化
+  </a>
+  <a href="" class="item menuItem">
+            资讯
+  </a> --}}
+
+  {{!-- <a class="item btcPrice">
+            BTC/CNY  &nbsp <span> ¥52901.13 +7.5%</span>   
+             ETH/CNY <span>¥3452.14 +4.26%</span>  <span>XRP/CNY ¥4.23 +9.68%</span>  BCC/CNY <span>¥5935.94 +1.83%</span>
+  </a> --}}
+
+  <div class="ui right item collectMenu">
+    <a href="/dir/make" class="item">项目收录</a>
+  </div>
+</div>
+

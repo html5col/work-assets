@@ -1,0 +1,136 @@
+{{#extend "css"}}
+  <style>
+    .secondHeader{
+      display: none;
+    }
+    .dividing.header{
+      color: olive;
+      font-size:1rem;
+      margin:1.5rem 0;
+
+    }
+
+    .formWrapper{
+      padding:1rem 2rem;
+      
+    }
+    .breadcrumb .section, .breadcrumb i.divider{
+      font-size:0.7rem!important;
+    }
+  </style>
+
+ 
+{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script> --}}
+
+{{/extend}}
+
+{{> general/header}}
+
+
+<div class="formWrapper contentBlock">
+                    
+  <div class="ui mini breadcrumb">
+    <a href="/" class="section">Home</a>
+    <i class="right chevron icon divider"></i>
+    <div class="active section">项目推介</div>
+  </div>
+
+  {{> general/message}}
+
+  <form class="ui form" method="POST" action="/dir/postDir">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    
+    <h4 class="ui dividing header">必填</h4>
+
+    <div class="field">
+      <label>项目/网站名</label>
+      <input type="text" name="projectName" placeholder="BTC (比特币)">
+    </div>
+    <div class="field">
+      <label>分类</label>
+      <select multiple class="ui dropdown" name="category">
+          <option value="" selected>选择分类</option>
+          {{#if categories}}
+              {{#each categories}}
+                  <option value="{{this.key}}">{{this.value}}</option>
+              {{/each}}
+          {{/if}}
+        </select>
+    </div>  
+    <div class="field">
+      <label> 简要介绍(小于60字) </label>
+      <textarea name="brief" placeholder="比特币是一种P2P形式的数字货币..."></textarea>
+    </div>
+    <div class="field">
+      <label>详情介绍(小于1000字)</label>
+      <textarea name="detail" id="detail" placeholder=""></textarea>
+    </div>  
+
+    <h4 class="ui dividing header">选填</h4>
+    <div class="field">
+      <label>白皮书地址</label>
+      <input type="text" name="whitePaperAddress" placeholder="www.bitcoin.org/whitepaper">
+    </div>  
+
+    <div class="field">
+      <label>供应总量</label>
+      <input type="text" name="totalSupply" placeholder="2100万">
+    </div> 
+
+    <div class="field">
+      <label>通胀情况</label>
+      <input type="text" name="inflation" placeholder="总数不变，不实行通胀">
+    </div> 
+
+    <div class="field">
+      <label>官网</label>
+      <input type="text" name="downloadingAddress" placeholder="www.bitcoin.org">
+    </div> 
+
+    <br>
+
+    <input class="ui submit fluid button" type="submit" value="提交审核">
+
+  </form>
+</div>
+
+
+
+{{#extend "js"}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  {{!-- <link rel="stylesheet" href="/simplemde/dist/simplemde.min.css">
+  <script src="/simplemde/dist/simplemde.min.js"></script> --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+<script>
+  var simplemde = new SimpleMDE({ 
+  spellChecker: false,
+	autofocus: true,
+	autosave: {
+		enabled: true,
+		uniqueId: "detail",
+		delay: 1000,
+	},
+  autoDownloadFontAwesome: false,
+	element: document.getElementById("detail"),
+//	forceSync: true,
+	hideIcons: ["guide"],
+	placeholder: "项目详细介绍..."
+  
+});
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/semantic/dist/semantic.min.js"></script>
+<script src="/semantic/dist/components/dropdown.min.js"></script>
+
+<script>
+$('.ui.dropdown')
+  .dropdown()
+;
+</script>
+
+{{/extend}}

@@ -12,7 +12,7 @@ const User = require('../models/User'),
   logger = require('../libs/logger')
 
 const coHandler = require('../common/coHandler')
-
+const seo = require('../config/seo');
 module.exports = {
   modifyPosts: function (posts, fn) {
             // 异步并发
@@ -194,8 +194,9 @@ module.exports = {
                const page = req.query.p ? parseInt(req.query.p) : 1,
                      outThis = this;
                let loginedUser;
-               if(req.user){
-                 loginedUser = req.user.processUser(req.user);
+               const user = req.user;
+               if(user){
+                 loginedUser = user.processUser(user);
                }
 
                const p = new Promise(function(resolve,reject){
@@ -218,6 +219,14 @@ module.exports = {
                     userProxy.getUserById(user_id, theuser=>{ 
                                 
                             res.render(path, {
+                                seo: {
+                                  title: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面`,//seo.personalPage.title,
+
+                                  keywords: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面, 个人页面`,//seo.personalPage.keywords,
+                                  
+                                  description: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的个人页面`//seo.personalPage.description,
+                                },
+
                                 user: req.user ? req.user.processUser(req.user) : req.user,
                                 isMyPosts: req.user ? (req.user._id == user_id ? true : false) : false,
                                 postUser: req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser,

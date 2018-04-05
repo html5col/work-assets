@@ -1,0 +1,25 @@
+.home{
+    *{
+        margin:0; 
+        padding:0;
+    }
+    .menuBar{
+        padding: 1rem;
+        background-color:#f6f6f6;
+        margin-bottom:1rem;
+        
+        a{
+            display: inline-block;
+            margin-right:1.5rem;
+            color: grey;/**#6ba44e;**/
+
+            white-space: nowrap;
+            text-overflow:initial;
+
+            &:hover{
+                border-bottom: 1px solid grey;
+            }
+        }
+  
+    }  
+}

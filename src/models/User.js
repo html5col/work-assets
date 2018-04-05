@@ -131,7 +131,7 @@ userSchema.methods.generateHash = password => {
 // in arrow-functions , the 'this'' value of the following statement is : window; // or the global object
 // as to arrow function inside a function,  it's the this of the outer function
 // arrow function expressions are best suited for non-method functions.
-userSchema.methods.validPassword = password => {
+userSchema.methods.validPassword = function password(password) {
   return bcrypt.compareSync(password, this.local.password);
 };
 

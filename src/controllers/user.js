@@ -9,15 +9,21 @@ const flash        = require('connect-flash'),
     path = require('path'),
     fs = require('fs'),
 	utils = require('../libs/utility'),
-	Post = require('../models/Post'),
+	// Post = require('../models/Post'),
 	User = require('../models/User'),
 	postProxy = require('../db_proxy/post');
-
+const seo = require('../config/seo');
+	
 module.exports = {
 
 		signup: (req,res)=>{
 					//render the page and pass in any flash data if it exists, req.flash is provided by connect-flash
 				    res.render('form/signup', { 
+						seo: {
+							title: seo.signup.title,
+							keywords: seo.signup.keywords,
+							description: seo.signup.description,
+						},
 			            messages: {
 			            	error: req.flash('error'),
 			            	success: req.flash('success'),
@@ -30,6 +36,11 @@ module.exports = {
 		login: (req,res)=>{
 					//render the page and pass in any flash data if it exists
 				    res.render('form/login', { 
+						seo: {
+							title: seo.login.title,
+							keywords: seo.login.keywords,
+							description: seo.login.description,
+						},
 			            messages: {
 			            	error: req.flash('error'),
 			            	success: req.flash('success'),
@@ -356,10 +367,8 @@ module.exports = {
 						    }
 						    req.logIn(user, function(err) {
 						    	if (err) { return next(err); }
-						    	
 						    	req.flash('success','Login successfully!')
 						    	return res.redirect('/user/profile/'+user._id);
-		 
 						    });        		
 				    })(req, res, next);
 		    };

@@ -24,8 +24,9 @@ require('./src/libs/passport')(passport); // pass passport for configuration
 require('./src/libs/mongoose-connect')
 // static中间件可以将一个或多个目录指派为包含静态资源的目录,其中资源不经过任何特殊处理直接发送到客户端,如可放img,css。 设置成功后可以直接指向、img/logo.png,static中间件会返回这个文件并正确设定内容类型
 // do use path.join(), since it'll generate effective slashes according to different systems(unix/window..)
-
+app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(express.static(path.join(__dirname, 'src/public')))
+
 app.set('views', path.join(__dirname, 'src/views'))
 
 const env = process.env.NODE_ENV || 'test'
@@ -80,11 +81,11 @@ app.use(session({
   app.enable('trust proxy');
 
   //prevent CSRF attack by ensuring requests legally from your site
-  // app.use(require('csurf')());
-  // app.use(function(req,res,next){
-  //  res.locals.csrfToken = req.csrfToken();
-  //  next();
-  // });
+  app.use(require('csurf')());
+  app.use(function(req,res,next){
+   res.locals.csrfToken = req.csrfToken();
+   next();
+  });
 
 
 
