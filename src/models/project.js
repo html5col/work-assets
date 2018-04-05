@@ -22,7 +22,6 @@ var projectSchema = new Schema({
           brief: {type: String, default: ''},
           detail: { type: String },
           category: {type: [String], required: true},
-
           whitePaperAddress: String,
           totalSupply: String,
           inflation: {type: String},
