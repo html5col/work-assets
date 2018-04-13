@@ -1,0 +1,10 @@
+version: '2'
+services:
+  mongo:
+    # restart: always
+    image: mongo:3.6
+    command: [--auth]
+    ports:
+      - "37017:27017"
+    volumes:
+      - /data/db

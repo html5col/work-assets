@@ -1,6 +1,7 @@
 'use strict'
 const User = require('../models/User'),
   Post = require('../models/Post'),
+  Project = require('../models/Project'),
   Comment = require('../models/Comment'),
   userProxy = require('../db_proxy/user'),
   moment = require('moment'),
@@ -198,55 +199,84 @@ module.exports = {
                if(user){
                  loginedUser = user.processUser(user);
                }
+               coHandler(function*(){
+                  let weeklyRec = yield Project.findOne({weeklyRecommend: true}).exec();
+                  res.render(path, { 
+                    seo: {
+                      title: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面`,//seo.personalPage.title,
 
-               const p = new Promise(function(resolve,reject){
-                    //查询并返回第 page 页的 10 篇文章  tag_id,title,user_id
-                    outThis.getTen(user_id, page, (err, posts, count)=> {
-                        if (err) {
-                            console.log('some error with getting the 10 personal posts:'+ err);
-                            //next(err);
-                            reject(`some error with getting the 10 personal posts: ${err}`);
-                            posts = [];
-                        }else{
-                            console.log('getPostsByUserId\'s getTen: '+ user_id +posts);
-                            resolve(posts,count);                           
-
-                        }
-                   },undefined,undefined,'exit_user_id');
-
+                      keywords: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面, 个人页面`,//seo.personalPage.keywords,
+                      
+                      description: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的个人页面`//seo.personalPage.description,
+                    },
+                    data: {weeklyRec},
+                    user: req.user ? req.user.processUser(req.user) : req.user,
+                    //isMyPosts: req.user ? (req.user._id == user_id ? true : false) : false,
+                    postUser: req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser,
+                    //posts: posts,
+                    //page: page,
+                    //isFirstPage: (page - 1) == 0,
+                    //isLastPage: ((page - 1) * 10 + posts.length) == count,                        
+                    messages: {
+                        error: req.flash('error'),
+                        success: req.flash('success'),
+                        info: req.flash('info'),
+                    }, // get the user out of session and pass to template
+                  }); 
                });
-               p.then(function(posts,count){
-                    userProxy.getUserById(user_id, theuser=>{ 
-                                
-                            res.render(path, {
-                                seo: {
-                                  title: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面`,//seo.personalPage.title,
 
-                                  keywords: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面, 个人页面`,//seo.personalPage.keywords,
+
+              //  const p = new Promise(function(resolve,reject){
+              //       //查询并返回第 page 页的 10 篇文章  tag_id,title,user_id
+              //       outThis.getTen(user_id, page, (err, posts, count)=> {
+              //           if (err) {
+              //               console.log('some error with getting the 10 personal posts:'+ err);
+              //               //next(err);
+              //               reject(`some error with getting the 10 personal posts: ${err}`);
+              //               posts = [];
+              //           }else{
+              //               console.log('getPostsByUserId\'s getTen: '+ user_id +posts);
+              //               resolve(posts,count);                           
+
+              //           }
+              //      },undefined,undefined,'exit_user_id');
+
+              //  });
+              //  p.then(function(posts,count){
+              //       userProxy.getUserById(user_id, theuser=>{ 
+                           
+              //                 // let weeklyRec = yield Project.findOne({weeklyRecommend: true}).exec();
+              //                 res.render(path, { 
+              //                   seo: {
+              //                     title: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面`,//seo.personalPage.title,
+
+              //                     keywords: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的页面, 个人页面`,//seo.personalPage.keywords,
                                   
-                                  description: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的个人页面`//seo.personalPage.description,
-                                },
-
-                                user: req.user ? req.user.processUser(req.user) : req.user,
-                                isMyPosts: req.user ? (req.user._id == user_id ? true : false) : false,
-                                postUser: req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser,
-                                posts: posts,
-                                page: page,
-                                isFirstPage: (page - 1) == 0,
-                                isLastPage: ((page - 1) * 10 + posts.length) == count,                        
-                                messages: {
-                                    error: req.flash('error'),
-                                    success: req.flash('success'),
-                                    info: req.flash('info'),
-                                }, // get the user out of session and pass to template
-                            });                                
-                    });
-               })
-               .catch(function(err){
-                  console.log(err.message);
-                  req.flash('error','Error finding the user!');
-                  res.redirect('back');
-               });
+              //                     description: `${(req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser).username}的个人页面`//seo.personalPage.description,
+              //                   },
+              //                   //data: {weeklyRec},
+              //                   user: req.user ? req.user.processUser(req.user) : req.user,
+              //                   isMyPosts: req.user ? (req.user._id == user_id ? true : false) : false,
+              //                   postUser: req.user ? (req.user._id == user_id ? loginedUser : theuser) : theuser,
+              //                   posts: posts,
+              //                   page: page,
+              //                   isFirstPage: (page - 1) == 0,
+              //                   isLastPage: ((page - 1) * 10 + posts.length) == count,                        
+              //                   messages: {
+              //                       error: req.flash('error'),
+              //                       success: req.flash('success'),
+              //                       info: req.flash('info'),
+              //                   }, // get the user out of session and pass to template
+              //                 });  
+                          
+                              
+              //       });
+              //  })
+              //  .catch(function(err){
+              //     console.log(err.message);
+              //     req.flash('error','Error finding the user!');
+              //     res.redirect('back');
+              //  });
             
   
         },

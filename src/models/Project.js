@@ -23,29 +23,40 @@ var projectSchema = new Schema({
           detail: { type: String },
           category: {type: [String], required: true},
           whitePaperAddress: String,
+          whitePaperAddress_cn: String,
           totalSupply: String,
           inflation: {type: String},
           downloadingAddress: {type: String},
           reviews: { type: String },
           reputation: { type: String },
+
+          weeklyRecommend: {type: Boolean, default: false}
 }, {timestamps: true});
 
 
-projectSchema.methods.time = time=> {
+
+projectSchema.methods.time = time => {
     return moment(time).format('L');
 };
-
 projectSchema.methods.processProject = project =>{
     return {
         _id:project._id,
         author: project.author,
         projectName: project.projectName,   
-        brief: project.brief,   
+        brief: project.brief.slice(0,60) + '...',   
         detail: project.detail,
         category: project.category,              
-        
-        created_at: project.time(project.created_at),
-        updated_at: project.time(project.updated_at),     
+        whitePaperAddress: project.whitePaperAddress,
+        whitePaperAddress_cn: project.whitePaperAddress_cn,
+        totalSupply: project.totalSupply,
+        inflation: project.inflation,
+        downloadingAddress: project.downloadingAddress,
+        reviews: project.reviews,
+        reputation: project.reputation,
+        weeklyRecommend: project.weeklyRecommend,
+
+        created_at: project.time(project.createdAt),
+        updated_at: project.time(project.updatedAt),     
     };
 };
 

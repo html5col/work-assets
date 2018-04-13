@@ -30,7 +30,11 @@
   </a> --}}
 
   <div class="ui right item collectMenu">
-    <a href="/dir/make" class="item">项目收录</a>
+    {{#if project}}
+      <a href="" class="item">错误提交</a>
+    {{else}}
+      <a href="/dir/make" class="item">项目收录</a>
+    {{/if}}
   </div>
 </div>
 

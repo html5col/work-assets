@@ -1,10 +1,11 @@
 
                 <div class="recom rightSection">
                     <h3><i class="green radio icon"></i> 每周推荐 </h3>
-
-                     <span> <strong>【EOS 柚子】</strong></span>
-                     <p>Java是目前世界上最流行的计算机编程语言之一，Java工程师是指运用Java这个开发工具去完成软件产品的软件程序设计、开发、测试、维护升级等工作的人员。</p>
-
+                     
+                       {{#if data.weeklyRec}}
+                     <span> <strong>“{{data.weeklyRec.projectName}}”</strong></span>
+                     <p>{{data.weeklyRec.brief}}</p>
+                       {{/if}}
                 </div>
 
 

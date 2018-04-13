@@ -32,6 +32,6 @@ module.exports = function(app,User,passport){
         router.post('/updateUser',auth.isLoggedIn, user.putUpdateUser(User));        
         router.post('/postSignup', user.postSignup(passport));        
         router.post('/postLogin', user.postLogin(passport));
-        router.post("/process/:year/:month", user.postFileUpload(app));        
+        //router.post("/process/:year/:month", user.postFileUpload(app));        
         return router;
 }

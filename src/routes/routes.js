@@ -5,7 +5,8 @@ const user = require('./frontend/user'),
 	  respond = require('./frontend/respond'),
 	  login3 = require('./frontend/login3'),
 	  index = require('./frontend/index'),
-	  dir = require('./frontend/dir');
+	  dir = require('./frontend/dir'),
+	  backendSetting = require('./backend/setting');
 	  // api = require('./frontend/api'),
 	 // post = require('./frontend/post');
 
@@ -19,10 +20,6 @@ module.exports   = function(app, passport, User) {
 	 // app.use('/api',api);
 	 app.use('/auth',login3);
 	 app.use('/dir', dir);
-	//  app.use('/post', post);
-	
-	 // app.use('/test',test);
 
-		//to get form data using req.body
-		/*****form part end********/
+     app.use('/admin', backendSetting);
 };

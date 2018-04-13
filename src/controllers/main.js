@@ -1,25 +1,87 @@
 "use strict";
-const fortuneLib = require('../libs/fortune.js'),
-      Post = require('../models/Post'),
-	  User = require('../models/User'),
-      postProxy = require('../db_proxy/post'),
-      userProxy = require('../db_proxy/user');
+const Project = require('../models/Project'),
+      User = require('../models/User'),
+      util = require('../libs/utility'),
+      dirProxy = require('../db_proxy/dir'),
+      coHandle = require('../common/coHandler');
+    //   postProxy = require('../db_proxy/post'),
+    //   userProxy = require('../db_proxy/user');
+    // Post = require('../models/Post'),
 const seo = require('../config/seo');
 module.exports = {
         home(req, res){
-            res.render('home/home', {
-                    seo: {
-                        title: seo.home.title,
-                        keywords: seo.home.keywords,
-                        description: seo.home.description,
-                    },
-                    user: req.user ? req.user.processUser(req.user) : req.user,
-                    messages: {
-                        error: req.flash('error'),
-                        success: req.flash('success'),
-                        info: req.flash('info'),
-                    }, // get the user out of session and pass to template
-            }); 
+            coHandle(function*(){
+                let projects = yield Project.find({}).exec();
+                let weeklyRec = yield Project.findOne({weeklyRecommend: true}).exec();
+                dirProxy.modifyProjects(projects, function(projects){
+                    //let isCurrency = util.inArray(projects, 'digitalCurrency-assets')
+                    let currencies = [],
+                    pow = [],
+                    pos = [],
+                    dpos = [],
+                    lowLayer_Appli = [],
+                    ETH_Appli = [];
+
+                
+
+                    projects.forEach(function(v,i,e){
+                        let isCur = util.inArray(v.category, 'digitalCurrency-assets');
+                        let ispow = util.inArray(v.category, 'pow-assets');
+                        let ispos = util.inArray(v.category, 'pos-assets');
+                        let isdpos = util.inArray(v.category, 'dpos-assets');
+                        let islowlayer_appli = util.inArray(v.category, 'lowLayer-Appli');
+                        let isETH_appli = util.inArray(v.category, 'Ethereum-Appli');
+
+                        if(isCur){
+                            currencies.push(v)
+                        }
+                        if(ispow){
+                            pow.push(v);
+                        }
+                        if(ispos){
+                            pos.push(v);
+                        }
+                        if(isdpos){
+                            dpos.push(v);
+                        }
+                        if(islowlayer_appli){
+                            lowLayer_Appli.push(v);
+                        }
+                        if(isETH_appli){
+                            ETH_Appli.push(v);
+                        }
+                    })
+
+                    res.render('home/home', {
+                        seo: {
+                            title: seo.home.title,
+                            keywords: seo.home.keywords,
+                            description: seo.home.description,
+                        },
+                        data: {
+                            // projects,
+                            currencies,
+                            pow,
+                            pos,
+                            dpos,
+                            lowLayer_Appli,
+                            ETH_Appli,
+
+                            weeklyRec
+
+                        },
+                        user: req.user ? req.user.processUser(req.user) : req.user,
+                        messages: {
+                            error: req.flash('error'),
+                            success: req.flash('success'),
+                            info: req.flash('info'),
+                        }, // get the user out of session and pass to template
+                    }); //render
+
+                })//modifiedPosts
+            
+            })//end of coHandle
+
         }
         //  home(req,res){
         //     //console.log(mailService.sendToGroup(['frank25184@icloud.com','ddd@dd.com','djfd@sdf.com'],'subject','this is body'));

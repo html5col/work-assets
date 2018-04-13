@@ -2,36 +2,33 @@
 let moment = require('moment'),
     Project = require('../models/Project'),
     User = require('../models/User');
-
-const seo = require('../config/seo');
-
 const marked = require('marked');
-
-let coHandle = require('../common/coHandler');
-
+const coHandle = require('../common/coHandler');
+const seo = require('../config/seo');
 const config = require('../common/get-config');
-    //Post = require('../models/Post'),
-    // Comment = require('../models/Comment'),
-    // postProxy = require('../db_proxy/post'),
-    // tagProxy = require('../db_proxy/tag');
+
 module.exports = {
       makeDir: (req,res) => {
         let categories = config.categories;
-        
-        res.render('form/singleProject', {
-            user: req.user ? req.user.processUser(req.user) : '',
-            categories: categories,
-            seo: {
-                title: seo.postProject.title,
-                keywords: seo.postProject.keywords,
-                description: seo.postProject.description,
-            },
-            messages: {
-                  error: req.flash('error'),
-                  success: req.flash('success'),
-                  info: req.flash('info'),
-            }
-        });  
+        coHandle(function*(){
+            let weeklyRec = yield Project.findOne({weeklyRecommend: true}).exec();
+            res.render('form/singleProject', {
+                user: req.user ? req.user.processUser(req.user) : '',
+                categories: categories,
+                data:{weeklyRec},
+                seo: {
+                    title: seo.postProject.title,
+                    keywords: seo.postProject.keywords,
+                    description: seo.postProject.description,
+                },
+                messages: {
+                      error: req.flash('error'),
+                      success: req.flash('success'),
+                      info: req.flash('info'),
+                }
+            });  
+        })
+
       },
 
       postDir: (req, res) => {
@@ -46,7 +43,7 @@ module.exports = {
           
           coHandle(function * (){
               yield project.save();
-              res.redirect('/')
+              res.redirect('/dir/detail?id=' + project._id);
           });
       },
 
@@ -74,6 +71,11 @@ module.exports = {
            });
         });
 
-      }
+      },
+
+
+      
+
+
     
 }

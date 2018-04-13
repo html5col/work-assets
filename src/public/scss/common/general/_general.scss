@@ -7,6 +7,7 @@
  //a,img,button,input,textarea,div{-webkit-tap-highlight-color:rgba(255,255,255,0);}
  body{ 
      min-height:100%;
+     color: #333333;
  }
  body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei";
@@ -106,7 +107,7 @@ a,input[type="button"],input[type="submit"],input[type="search"]{
 }
 
 
-ul li{list-style:none;}  
+// ul li{list-style:none;}  
 input{
    
    &[type="button"]:hover,input[type="submit"]:hover{cursor:pointer;}

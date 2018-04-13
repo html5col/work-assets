@@ -1,0 +1,54 @@
+{{> general/header}}
+
+{{#extend "css"}}
+  {{!-- <link href="https://cdn.bootcss.com/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet"> --}}
+    <style>
+    </style>
+{{/extend}}
+<div class="contentBlock">
+        <div class="ui column grid" style="margin-top: 0.5rem;">
+                <div class="eleven wide computer sixteen wide mobile column stackable leftBlock"> 
+                    <table class="ui compact celled definition table">
+                    {{#each projects}}
+                    <thead>
+                        <tr>
+                        {{!-- <th></th> --}}
+                        <th>Project Name</th>
+                        <th>Weekly Recommend</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        {{!-- <td class="collapsing">
+                            <div class="ui fitted slider checkbox">
+                            <input type="checkbox"> <label></label>
+                            </div>
+                        </td> --}}
+                        <td>{{this.projectName}}</td>
+                        <td>{{this.weeklyRecommend}}</td>
+                        <td>
+                            <a class="ui button" href="/admin/weeklyrec?id={{this._id}}">每周推荐</a>
+                            <a class="ui button" href="">Block</a>
+                        </td>
+                        </tr>
+
+
+                    </tbody>
+                    {{/each}}
+                    </table>
+                </div>
+    
+                <div class="four wide computer sixteen wide mobile column stackable rightBlock">
+
+                </div>
+        </div>
+</div>
+
+
+
+
+
+{{#extend "js"}}
+  {{!-- <script src="https://cdn.bootcss.com/semantic-ui/2.3.1/semantic.min.js"></script> --}}
+{{/extend}}

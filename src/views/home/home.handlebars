@@ -73,7 +73,13 @@
                             {{!-- <p>IBM开发者社区Java 技术, 文章, 教程,</p> --}}
                         </div>
 
+                        {{#each data.lowLayer_Appli}}
                         <div class="column">
+                            <a href="/dir/detail?id={{this._id}}" target="_blank">{{this.projectName}}</a> 
+                            <p>{{this.brief}}</p>
+                        </div>
+                        {{/each}}
+                        {{!-- <div class="column">
                             <a href="/dir/detail?id=5abdc061d3f5ddfe76905fb3" target="_blank">ETH (以太坊)</a> 
                             <p>开源的有智能合约功能的公共区块链平台。通过其专用加密货币以太币（Ether，又称"以太币"）提供去中心化的虚拟机</p>
                         </div>
@@ -94,7 +100,7 @@
                         <div class="column">
                             <a href="https://wanchain.org" target="_blank">万维链（Wanchain）</a> 
                             <p>建立一个基础设施,能够以去中心化的方式完成不同区块链网络的连接及价值的交换</p>
-                        </div>
+                        </div> --}}
 
                         
                     </div>
@@ -106,22 +112,32 @@
                         <div class="column subCateg">
                             <h3>以太坊</h3> 
                         </div> 
+
+                        {{#each data.ETH_Appli}}
                         <div class="column">
+                            <a href="/dir/detail?id={{this._id}}" target="_blank">{{this.projectName}}</a> 
+                            <p>{{this.brief}}</p>
+                        </div>
+                        {{/each}}
+
+
+                        
+                        {{!-- <div class="column">
                             <a href="https://www.stateofthedapps.com/" target="_blank">以太坊应用</a> 
                             <p>State of the Dapps. 以太坊应用聚合网站</p>
                         </div>
 
                         <div class="column">
                             <a href="www.cipherbrowser.com" target="_blank">Cipher Browser</a> 
-                            {{!-- <p>a free mobile Ethereum wallet and web3 dapp browser</p> --}}
+                     
                             <p>免费的移动以太坊钱包和Web3 Dapp 浏览器</p>
                         </div>
 
                         <div class="column">
                             <a href="https://makerdao.com" target="_blank">MakerDAO</a> 
-                            {{!-- <p>a free mobile Ethereum wallet and web3 dapp browser</p> --}}
+            
                             <p>最早的去中心化自治组织（DAO）之一，为以太坊区块链提供稳定货币</p>
-                        </div>
+                        </div> --}}
 
                        {{!-- <div class="column">
                             <a href="https://www.omise.co">Blockchain for Social Impact Coalition</a> 
@@ -135,7 +151,7 @@
                             <p>District0x是一个建立在以太坊,Arogon(去中心化自治组织项目)和IPFS项目(分布式存储)之上的去中心化的市场和社区网络</p>
                      </div> --}}
 
-                        <div class="column">
+                        {{!-- <div class="column">
                             <a href="https://www.ethereum.org/foundation" target="_blank">以太坊基金会</a> 
                             <p>管理以太币销售中筹措的基金,以更好地为以太坊和去中心化技术生态系统服务</p>
                         </div>
@@ -148,7 +164,7 @@
                         <div class="column">
                             <a href="https://melonport.com" target="_blank">Melon（梅隆）协议</a> 
                             <p>一种以太坊上的数字资产管理的区块链协议，它允许参与者用公开、竞争和去中心化的方式发起、管理和投资数字资产</p>
-                        </div>
+                        </div> --}}
 
                     </div>
 
@@ -339,7 +355,15 @@
                         <div class="column subCateg">
                             <h3>数字资产</h3> 
                         </div>
-                        <div class="column">
+                                {{#each data.currencies}}
+                                <div class="column">
+                                    <a href="/dir/detail?id={{this._id}}" target="_blank">{{this.projectName}}</a> 
+                                    <p>{{this.brief}}</p>
+                                </div>
+                                {{/each}}
+                        
+                        
+                        {{!-- <div class="column">
                             <a href="https://bitcoin.org/zh_CN/" target="_blank">BTC (比特币)</a> 
                             <p>P2P形式的数字货币</p>
                         </div>
@@ -383,22 +407,22 @@
                         <div class="column">
                             <a href="https://www.stellar.org/" target="_blank">恒星币</a> 
                             <p>搭建一个数字货币与法定货币之间传输的去中心化网关</p>
-                        </div>
-                        {{!-- <div class="column">
-                            <a href="https://lisk.io/">Lisk</a> 
-                            <p>。。。</p>
-                        </div> --}}
-                        {{!-- <div class="column">
-                            <a href="https://lisk.io/">Lisk</a> 
-                            <p>。。。</p>
                         </div> --}}
                     </div>
 
                     <div class="ui four column grid stackable smBlock">
+                        
                         <div class="column subCateg">
                             <h3>PoW</h3> 
                         </div>
+                        {{#each data.pow}}
                         <div class="column">
+                            <a href="/dir/detail?id={{this._id}}" target="_blank">{{this.projectName}}</a> 
+                            <p>{{this.brief}}</p>
+                        </div>
+                        {{/each}}
+
+                        {{!-- <div class="column">
                             <a href="https://bitcoin.org/zh_CN/" target="_blank">BTC (比特币)</a> 
                             <p>P2P形式的数字货币</p>
                         </div>
@@ -430,37 +454,47 @@
                         <div class="column">
                             <a href="https://www.dash.org/cn/" target="_blank">达世币</a> 
                             <p>第一个以保护隐私为要旨的数字货币</p>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="ui four column grid stackable smBlock">
                         <div class="column subCateg">
                             <h3>PoS</h3> 
                         </div>
-
+                        {{#each data.pos}}
                         <div class="column">
+                            <a href="/dir/detail?id={{this._id}}" target="_blank">{{this.projectName}}</a> 
+                            <p>{{this.brief}}</p>
+                        </div>
+                        {{/each}}
+                        {{!-- <div class="column">
                             <a href="https://www.ethereum.org/" target="_blank">ETH (以太坊)</a> 
                             <p>开源的有智能合约功能的公共区块链平台</p>
                         </div>
                         <div class="column">
                             <a href="https://ethereumclassic.github.io/" target="_blank">ETC (以太经典)</a> 
                             <p>以太坊分叉币，更注重去中心化</p>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="ui four column grid stackable smBlock">
                         <div class="column subCateg">
                             <h3>DPoS</h3> 
                         </div>
- 
+                        {{#each data.dpos}}
                         <div class="column">
+                            <a href="/dir/detail?id={{this._id}}" target="_blank">{{this.projectName}}</a> 
+                            <p>{{this.brief}}</p>
+                        </div>
+                        {{/each}} 
+                        {{!-- <div class="column">
                             <a href="https://lisk.io/" target="_blank">Lisk</a> 
                             <p>基于JavaScript的高度可扩展公共区块链</p>
                         </div>
                         <div class="column">
                             <a href="https://www.asch.so/" target="_blank">阿希(Asch)</a> 
                             <p>国内分布式区块链应用平台,采用区块链侧链技术,实现区块链js开发、智能合约、数字资产发行等功能</p>
-                        </div>
+                        </div> --}}
                         
                     </div>
                 </div>
@@ -1075,7 +1109,7 @@
                             {{!-- <p></p> --}}
                         </div>
                         <div class="column">
-                            <a href="https://www.okcoin.com/" target="_blank">OKCOIN</a> 
+                            <a href="/dir/detail?id=5ad012baf1181550696966bf" target="_blank">OKex</a> 
                             <p>Okcoin交易所海外版</p>
                         </div>
                         <div class="column">
