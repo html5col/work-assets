@@ -7,4 +7,4 @@ services:
     ports:
       - "37017:27017"
     volumes:
-      - /data/db
+      - /data/dirdb
