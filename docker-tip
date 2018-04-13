@@ -1,0 +1,25 @@
+docker-compose for centos:
+yum -y install epel-release
+yum -y install python-pip
+pip install --upgrade pip
+pip -V
+
+pip install docker-compose
+docker-compose -version
+
+
+1, docker-compose up -d
+
+
+
+
+
+
+如果报错：
+pkg_resources.DistributionNotFound: backports.ssl-match-hostname>=3.5 
+　　解决方法：更新backports.ssl-match-hostname的版本，在终端输入命令
+　　pip install --upgrade backports.ssl_match_hostname
+
+　　如若python版本过低，需升级，见：http://www.cnblogs.com/YatHo/p/8257387.html
+
+

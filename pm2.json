@@ -14,10 +14,10 @@
     "out_file"   : "./logs/app-out.log",
     "env": {
         "NODE_ENV": "production",
-        "dbUsername": "franklee",
-        "dbPassword": "548331198",
-        "MongoPort": 27017,
-        "PORT": 8000
+        "dbUsername": "franklee25184",
+        "dbPassword": "franklee548331198",
+        "MongoPort": 37017,
+        "PORT": 8887
     },
     "env_dev": {
         "NODE_ENV": "development"
