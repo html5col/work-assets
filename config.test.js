@@ -53,6 +53,7 @@ var config = {
       'ttl': 1000 * 60 * 60 * 24 * 30
     }
   },
+  
   session_secret: 'node_site_secret', // 务必修改
   auth_cookie_name: 'node_site',
 
