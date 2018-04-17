@@ -1,5 +1,5 @@
 "use strict";
-const User = require('../models/User'),
+const //User = require('../models/User'),
       util = require('../libs/utility'),
       coHandle = require('../common/coHandler');
 const seo = require('../config/seo');
