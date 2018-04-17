@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'src/views'))
 const passport = require('passport')
 require('./src/libs/passport')(passport); // pass passport for configuration
 
-require('./src/libs/mongoose-connect')
+// require('./src/libs/mongoose-connect')
 // static中间件可以将一个或多个目录指派为包含静态资源的目录,其中资源不经过任何特殊处理直接发送到客户端,如可放img,css。 设置成功后可以直接指向、img/logo.png,static中间件会返回这个文件并正确设定内容类型
 // do use path.join(), since it'll generate effective slashes according to different systems(unix/window..)
 app.use(express.static(path.join(__dirname, 'node_modules')))

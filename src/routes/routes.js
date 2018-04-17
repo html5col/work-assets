@@ -15,11 +15,11 @@ const user = require('./frontend/user'),
 
 module.exports   = function(app, passport, User) {
 	 app.use('/',index);  
-	 app.use('/response',respond);   
-	 app.use('/user',user(app,User,passport));
-	 // app.use('/api',api);
-	 app.use('/auth',login3);
-	 app.use('/dir', dir);
+	//  app.use('/response',respond);   
+	//  app.use('/user',user(app,User,passport));
+	//  // app.use('/api',api);
+	//  app.use('/auth',login3);
+	//  app.use('/dir', dir);
 
-     app.use('/admin', backendSetting);
+    //  app.use('/admin', backendSetting);
 };

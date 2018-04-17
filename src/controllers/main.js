@@ -12,7 +12,7 @@ module.exports = {
                             // keywords: seo.home.keywords,
                             // description: seo.home.description,
                         },
-                        user: req.user ? req.user.processUser(req.user) : req.user,
+                        //user: req.user ? req.user.processUser(req.user) : req.user,
                         messages: {
                             error: req.flash('error'),
                             success: req.flash('success'),

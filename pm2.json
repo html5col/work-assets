@@ -1,5 +1,5 @@
 {
-    "name"        : "directory",
+    "name"        : "assets",
     "script"      : "./app.js",
     "cwd"         : "./",
     "ignore_watch" : [
