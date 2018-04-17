@@ -1,8 +1,8 @@
 "use strict";
 const //User = require('../models/User'),
-      util = require('../libs/utility'),
+      //util = require('../libs/utility'),
       coHandle = require('../common/coHandler');
-const seo = require('../config/seo');
+//const seo = require('../config/seo');
 module.exports = {
         home(req, res){
             coHandle(function*(){
