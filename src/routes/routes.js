@@ -1,12 +1,12 @@
 // app/frontend.js
 "use strict";
-const user = require('./frontend/user'),
+const //user = require('./frontend/user'),
       // test = require('./frontend/test'),
-	  respond = require('./frontend/respond'),
-	  login3 = require('./frontend/login3'),
-	  index = require('./frontend/index'),
-	  dir = require('./frontend/dir'),
-	  backendSetting = require('./backend/setting');
+	  //respond = require('./frontend/respond'),
+	  //login3 = require('./frontend/login3'),
+	  index = require('./frontend/index');
+	 // dir = require('./frontend/dir'),
+	 // backendSetting = require('./backend/setting');
 	  // api = require('./frontend/api'),
 	 // post = require('./frontend/post');
 
