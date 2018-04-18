@@ -2,15 +2,15 @@
 const //User = require('../models/User'),
       //util = require('../libs/utility'),
       coHandle = require('../common/coHandler');
-//const seo = require('../config/seo');
+const seo = require('../config/seo');
 module.exports = {
         home(req, res){
             coHandle(function*(){
                     res.render('home/index', {
                         seo: {
-                            // title: seo.home.title,
-                            // keywords: seo.home.keywords,
-                            // description: seo.home.description,
+                            title: seo.home.title,
+                            keywords: seo.home.keywords,
+                            description: seo.home.description,
                         },
                         //user: req.user ? req.user.processUser(req.user) : req.user,
                         // messages: {
