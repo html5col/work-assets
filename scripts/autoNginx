@@ -5,5 +5,5 @@ mkdir /etc/nginx/sites-available
 mkdir /etc/nginx/sites-enabled
 cp -pr /test/ngnix/* /etc/nginx
 # Create a symbolic link between sites-available and sites-enabled
-ln -s /etc/nginx/sites-available/invest.conf /etc/nginx/sites-enabled/invest.conf
+ln -s /etc/nginx/sites-available/test.conf /etc/nginx/sites-enabled/test.conf
 service nginx restart
