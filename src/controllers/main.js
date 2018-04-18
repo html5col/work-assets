@@ -13,11 +13,11 @@ module.exports = {
                             // description: seo.home.description,
                         },
                         //user: req.user ? req.user.processUser(req.user) : req.user,
-                        messages: {
-                            error: req.flash('error'),
-                            success: req.flash('success'),
-                            info: req.flash('info'),
-                        }, // get the user out of session and pass to template
+                        // messages: {
+                        //     error: req.flash('error'),
+                        //     success: req.flash('success'),
+                        //     info: req.flash('info'),
+                        // }, // get the user out of session and pass to template
                     }); //render            
             })//end of coHandle
         }
