@@ -70,12 +70,20 @@ app.use(session({
   app.use(flash()); // use connect-flash for flash messages stored in session
  
 
+  // app.use(function(req,res,next){
+  //  //pass it to the context if there is flash message and then delete it
+  //  res.locals.flash = req.session.flash;
+  //  delete req.session.flash;
+  //  next();
+
+  // }); 
   app.use(function(req,res,next){
-   //pass it to the context if there is flash message and then delete it
-   res.locals.flash = req.session.flash;
-   delete req.session.flash;
+   res.locals.csrfToken = '';
    next();
-  }); 
+  });
+
+
+
 
   //ensure you tell express that you've used a proxy and it should be trusted if yuo set a proxy server like ngnix so req.ip, req.protocol,req.secure can reflect the connectiong details of the client and the proxy server rather than between your client and your app. Besides, req.ips will be an array, wihch is composed of IP of original client and IP or names of all the middle proxy
   app.enable('trust proxy');
@@ -86,7 +94,10 @@ app.use(session({
   //  res.locals.csrfToken = req.csrfToken();
   //  next();
   // });
-
+  app.use(function(req,res,next){
+   res.locals.csrfToken = '';
+   next();
+  });
 
 
 
