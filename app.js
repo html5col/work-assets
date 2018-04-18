@@ -82,10 +82,10 @@ app.use(session({
 
   //prevent CSRF attack by ensuring requests legally from your site
   // app.use(require('csurf')());
-  app.use(function(req,res,next){
-   res.locals.csrfToken = req.csrfToken();
-   next();
-  });
+  // app.use(function(req,res,next){
+  //  res.locals.csrfToken = req.csrfToken();
+  //  next();
+  // });
 
 
 
