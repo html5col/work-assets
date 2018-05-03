@@ -1,5 +1,13 @@
 {{#extend "css"}}
 <style>
+  footer{
+    margin-bottom:2rem;
+  }
+  footer a{
+    display: inline-block;
+    padding-bottom: 2rem;
+    color:grey;
+  }
 </style>
 {{/extend}}
 
@@ -85,14 +93,14 @@
             <a class="portfolio-box" href="img/laptop_mini.jpg">
               <img class="img-fluid" src="img/laptop_mini.jpg" style="background-size:background-size:cover;" alt="">
               <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
+                {{!-- <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
                     智能催告中心
                   </div>
                   <div class="project-name">
                     还款日前后自动语音提醒还款；零人工介入，标准化结果反馈，逾期风险提前获知
                   </div>
-                </div>
+                </div> --}}
               </div>
             </a>
           </div>
@@ -100,14 +108,14 @@
             <a class="portfolio-box" href="img/floor_mini.jpg">
               <img class="img-fluid" src="img/floor_mini.jpg" alt="">
               <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
+                {{!-- <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
                     催迹·移动催收工具
                   </div>
                   <div class="project-name">
                     首创外访移动催收客户端产品；免费电话沟通债务人、第一时间反馈现场催收音视频信息
                   </div>
-                </div>
+                </div> --}}
               </div>
             </a>
           </div>
@@ -115,14 +123,14 @@
             <a class="portfolio-box" href="img/building_mini.jpg">
               <img class="img-fluid" src="img/building_mini.jpg" alt="">
               <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
+                {{!-- <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
                     电催呼叫中心
                   </div>
                   <div class="project-name">
                     标准化催收业务专用呼叫中心产品；通话、短信、录音全满足；低资费、快速开通、随时扩容
                   </div>
-                </div>
+                </div> --}}
               </div>
             </a>
           </div>
@@ -178,11 +186,11 @@
     <section class="bg-dark text-white">
       <div class="container text-center">
         <h2 class="mb-4">立即开始资产之旅!</h2>
-        <a class="btn btn-light btn-xl sr-button" href="#contact">联系!</a>
+        <a class="btn btn-light btn-xl sr-button" href="#contact">联系我们!</a>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" style="padding-bottom:6rem">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -205,6 +213,13 @@
         </div>
       </div>
     </section>
+    
+    <footer style="text-align:center;">
+      <a href="http://www.coamc.com.cn/" style="display: inline-block;margin-bottom:2rem;color:grey;">中国东方资产</a>
+      <a href="http://www.chamc.com.cn/" style="display: inline-block;margin-bottom:2rem;color:grey;">中国华融</a>
+      <a href="http://www.cinda.com.cn/xdjt/xdjtpd/index.shtml" style="display: inline-block;margin-bottom:2rem;color:grey;">信达资产</a>
+      <a href="http://www.gwamcc.com/" style="display: inline-block;margin-bottom:2rem;color:grey;">中国长城资产</a>
+    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
